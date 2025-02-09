@@ -38,7 +38,6 @@
   });
 
   const selectFolder = (folder) => {
-    console.log(folder);
     selectedFolder.value = folder;
     folderid.value = folder.id;
   };

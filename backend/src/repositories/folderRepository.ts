@@ -42,4 +42,41 @@ export class FolderRepository {
       }))
     );
   }
+  // **Insert Folder**
+  static async insertFolder(name: string, parentId: number | null = null) {
+    return await prisma.folder.create({
+      data: { name, parentId },
+    });
+  }
+
+  // **Update Folder (Rename atau ubah parent)**
+  static async updateFolder(
+    id: number,
+    name?: string,
+    parentId?: number | null
+  ) {
+    return await prisma.folder.update({
+      where: { id },
+      data: { name, parentId },
+    });
+  }
+
+  // **Delete Folder**
+  static async deleteFolder(id: number) {
+    return await prisma.folder.delete({
+      where: { id },
+    });
+  }
+  // **Insert File**
+  static async insertFile(name: string, extension: string, folderId: number) {
+    return await prisma.file.create({
+      data: { name, extension, folderId },
+    });
+  }
+  // **Delete File**
+  static async deleteFile(id: number) {
+    return await prisma.file.delete({
+      where: { id },
+    });
+  }
 }

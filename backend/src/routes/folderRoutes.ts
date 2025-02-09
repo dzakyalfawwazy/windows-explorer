@@ -136,7 +136,11 @@ router.get("/folders", FolderController.getAllFolders);
  *                   parentId: 1
  */
 
+router.post("/folders", FolderController.createFolder);
+router.delete("/folders/:id", FolderController.deleteFolder);
 router.get("/folders/:parentId", FolderController.getSubfolders);
 router.get("/folders/tree", FolderController.getFolderTree);
+router.post("/files", FolderController.createFile);
+router.delete("/files/:id", FolderController.deleteFile);
 
 export default router;
